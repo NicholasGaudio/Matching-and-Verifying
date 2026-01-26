@@ -1,4 +1,4 @@
-from helper import parseInput
+from helper import parseInput, Entity
 
 def main():
     hospitals = {}
@@ -7,7 +7,9 @@ def main():
     n = 0
 
     n = parseInput("Data\Input\\testInput.txt", hospitals, hQueue, students)
-    print("Hospitals: ", hospitals, "\nStudents: ", students, "\nQueue", hQueue, "\nn:", n)
+    
+    
+    
     
 
 if __name__ == "__main__":

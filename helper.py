@@ -34,12 +34,15 @@ def parseInput(filepath, hospitals, hQueue, students):
         preferences = []
         for c in range(n):
             preferences.append(int(rows[i][c]))
-        hospitals[i] = preferences[:]
-        hQueue.append(i)
+        h = Entity(i, preferences[:])
+        hospitals[h.index] = h
+        hQueue.append(h.index)
+        
     for i in range(n + 1, 2*n + 1):
         preferences = []
         for c in range(n):
             preferences.append(int(rows[i][c]))
-        students[i-n] = preferences[:]
+        s = Entity(i-n, preferences[:])
+        students[s.index] = s
     return n
         
