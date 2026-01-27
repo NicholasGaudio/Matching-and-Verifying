@@ -1,4 +1,4 @@
-from helper import parseInput, Entity
+from helper import parseInput, Entity, match, matchOuput
 
 def main():
     hospitals = {}
@@ -6,10 +6,9 @@ def main():
     students = {}
     n = 0
 
-    n = parseInput("Matching-and-Verifying\\Data\\Input\\testInput.txt", hospitals, hQueue, students)
-
-    print(n)
-    
+    n = parseInput("Data\\Input\\testInput.txt", hospitals, hQueue, students)
+    match(hQueue, students)
+    matchOuput(hospitals, n, "Data\Output")
     
     
     
