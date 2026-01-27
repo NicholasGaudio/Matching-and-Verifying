@@ -6,7 +6,9 @@ def main():
     students = {}
     n = 0
 
-    n = parseInput("Data\Input\\testInput.txt", hospitals, hQueue, students)
+    n = parseInput("Matching-and-Verifying\\Data\\Input\\testInput.txt", hospitals, hQueue, students)
+
+    print(n)
     
     
     
