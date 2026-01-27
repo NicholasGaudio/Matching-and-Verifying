@@ -10,7 +10,6 @@ class Entity:
         
 
     # Potential helper methods
-
     def match(self, other):
         self.isMatched = True
         self.matchedTo  = other
@@ -22,6 +21,8 @@ class Entity:
         self.isMatched = False
         self.matchedTo = None
 
+# Takes input file and converts it into Entity objects that are placed into a Hospital Map and Student Map respectively
+# Also adds all hospital Entities to the hQueue and stores the number of Hospitals/Students for output formatting
 def parseInput(filepath, hospitals, hQueue, students):
     with open(filepath, 'r') as input:
         lines = input.readlines()
@@ -48,6 +49,9 @@ def parseInput(filepath, hospitals, hQueue, students):
     return n
 
 
+# Implementation of the Gale-Shapely algorithm
+# Goes through a queue of hospitals matching them to students based off of the algorithms criteria
+# Any unmatched hospital is added back into the queue for later
 def match(hQueue, students):
     while len(hQueue) != 0:
         curHos = hQueue[0]
@@ -72,7 +76,9 @@ def match(hQueue, students):
                 break
         hQueue.pop(0)
     return
-            
+
+# This formats the output for matching using the G-S algorithm
+# It will generate a new numbered file each time 
 def matchOuput(hospitals, n, rootPath):
     filepath = Path("")
     i = 0
