@@ -51,6 +51,9 @@ def parseInput(filepath, hospitals, hQueue, students):
 # Takes output file and sets correct matches between Hospital and Student Entities
 # Verifies correct formatting of output file
 def parseOutput(filepath, hospitals, students, n):
+    fileStudents = {}
+    fileHospitals = {}
+
     with open(filepath, 'r') as input:
         lines = input.readlines()
 
@@ -71,6 +74,12 @@ def parseOutput(filepath, hospitals, students, n):
         # Match
         h = hospitals[int(rows[i][0])]
         s = students[int(rows[i][1])]
+
+        if h.index in fileHospitals or s.index in fileStudents:
+            return False
+        
+        fileHospitals[h.index] = h
+        fileStudents[s.index] = s
         h.match(s)
 
     return n
