@@ -48,6 +48,33 @@ def parseInput(filepath, hospitals, hQueue, students):
         students[s.index] = s
     return n
 
+# Takes output file and sets correct matches between Hospital and Student Entities
+# Verifies correct formatting of output file
+def parseOutput(filepath, hospitals, students, n):
+    with open(filepath, 'r') as input:
+        lines = input.readlines()
+
+    # Verify correct number of lines
+    if len(lines) != n:
+        return False
+    
+    rows = []
+    for line in lines:
+        rows.append(line.strip().split())
+        
+    for i in range(0, n):
+        
+        # Verify only 2 entries per line
+        if len(rows[i]) != 2:
+            return False
+        
+        # Match
+        h = hospitals[int(rows[i][0])]
+        s = students[int(rows[i][1])]
+        h.match(s)
+
+    return n
+
 
 # Implementation of the Gale-Shapely algorithm
 # Goes through a queue of hospitals matching them to students based off of the algorithms criteria

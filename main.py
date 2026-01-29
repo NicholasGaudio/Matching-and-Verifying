@@ -1,4 +1,4 @@
-from helper import parseInput, Entity, match, matchOuput
+from helper import parseInput, Entity, match, matchOuput, parseOutput
 
 def main():
     hospitals = {}
@@ -7,8 +7,14 @@ def main():
     n = 0
 
     n = parseInput("Data\\Input\\testInput.txt", hospitals, hQueue, students)
-    match(hQueue, students)
-    matchOuput(hospitals, n, "Data\Output")
+    
+    #match(hQueue, students)
+    #matchOuput(hospitals, n, "Data\Output")
+
+    if (parseOutput("Data\\Input\\testOutput.txt", hospitals, students, n)):
+        print("Output parsed successfully.")
+    else:
+        print("Error parsing output.")
     
     
     
