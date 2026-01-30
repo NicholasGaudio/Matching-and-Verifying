@@ -1,4 +1,5 @@
 from pathlib import Path
+import random
 
 class Entity:
 
@@ -145,7 +146,7 @@ def match(hQueue, students):
                 for pref in choice.preferences:
                     if pref == other.index:
                         break
-                    if pref == choice.index:
+                    if pref == curHos.index:
                         other.unmatch()
                         hQueue.append(other)
                         curHos.match(choice)
@@ -193,3 +194,21 @@ def verifier(hospitals, students):
                         return False
        
     return True
+
+def generateInputs(rootPath, num):
+    filepath = Path("")
+    filepath = Path(rootPath + "\\input_" + str(num) + ".txt")
+
+    values = []
+    for i in range(1, num+1):
+        values.append(i)
+    
+    with open(filepath, "x") as file:
+        file.write(str(num) + "\n")
+        for i in (range(2 * num)):
+            random.shuffle(values)
+            for val in values:
+                file.write(str(val) + " ")
+            file.write("\n")
+
+    return
