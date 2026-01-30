@@ -2,7 +2,7 @@
 
 # Task C: Runtime Analysis
 
-![GS Matcher Time Graph](Graphics\GSMatcherTimeGraph.png)
+<img src="Matching-and-Verifying\Graphics\GSMatcherTimeGraph.png" width="200" height="150">
 
 The above graph is the representation of the time it takes for 
 the program to match hospital and student pairs over n, the number
@@ -12,7 +12,7 @@ input size and growing rapidly after the inputs cross 100.
 
 This holds true for the verifier as well as can be seen below:
 
-![GS Verifier Time Graph](Graphics\VerifierTimeGraph.png)
+<img src="Matching-and-Verifying\Graphics\VerifierTimeGraph.png" width="200" height="150">
 
 In both of these instances, it is clear that as the inputs increase
 runtime increases at a faster and faster rate meaning that for much larger inputs
