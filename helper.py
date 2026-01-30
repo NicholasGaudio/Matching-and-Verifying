@@ -33,8 +33,10 @@ def parseInput(filepath, hospitals, hQueue, students):
 
     if (len(rows) == 0 or len(rows[0]) != 1):
         return -1
-    
-    n = int(rows[0][0])
+    try:
+        n = int(rows[0][0])
+    except ValueError:
+        return -1
     for i in range(1, len(rows)):
         if (len(rows[i]) != n):
             return -1
@@ -45,7 +47,10 @@ def parseInput(filepath, hospitals, hQueue, students):
         preferences = []
         prefUnique = {}
         for c in range(n):
-            preference = int(rows[i][c])
+            try:
+                preference = int(rows[i][c])
+            except ValueError:
+                return -1
             if (preference < 1 or preference > n):
                 return -1
             if preference in prefUnique:
@@ -62,7 +67,10 @@ def parseInput(filepath, hospitals, hQueue, students):
         preferences = []
         prefUnique = {}
         for c in range(n):
-            preference = int(rows[i][c])
+            try:
+                preference = int(rows[i][c])
+            except ValueError:
+                return -1       
             if (preference < 1 or preference > n):
                 return -1
             if preference in prefUnique:
@@ -99,8 +107,16 @@ def parseOutput(filepath, hospitals, students, n):
             return False
         
         # Match
-        h = hospitals[int(rows[i][0])]
-        s = students[int(rows[i][1])]
+        try:
+            hospitalIndex = int(rows[i][0])
+            studentIndex = int(rows[i][1])
+        except ValueError:
+            return False
+
+        if hospitalIndex < 1 or hospitalIndex > n or studentIndex < 1 or studentIndex > n:
+            return False
+        h = hospitals[hospitalIndex]
+        s = students[studentIndex]
 
         if h.index in fileHospitals or s.index in fileStudents:
             return False

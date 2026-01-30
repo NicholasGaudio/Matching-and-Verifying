@@ -10,14 +10,18 @@ def main():
     if n == -1:
         print("Error parsing input.")
         return
+    else:
+        print(f"Parsed input successfully with n={n}.")
+
     
     # match(hQueue, students)
     # matchOuput(hospitals, n, "Data\\Output")
 
-    # if (parseOutput("Data\\Output\\output_0.txt", hospitals, students, n)):
-    #     print("Output parsed successfully.")
-    # else:
-    #     print("Error parsing output.")
+    parsed = parseOutput("Data\\Output\\output_0.txt", hospitals, students, n)
+    if parsed:
+        print("Output parsed successfully.")
+    else:
+        print("Error parsing output.")
 
     # if (verifier(hospitals, students)):
     #     print("Output verified successfully.")
