@@ -2,6 +2,7 @@
 
 # Authors
 John (Jack) Kellen | UFID: 85033113
+Nicholas Gaudio | UFID: 26110582
 
 # How To Run
 To work with this project:
@@ -11,7 +12,8 @@ To work with this project:
 
 Following these instructions will run the default setup that we have
 where an input of n=16 is run through the matcher which generates an
-output_x.txt file in the Data\Output folder.
+output_x.txt file in the Data\Output folder. This will parse input, run matching algo,
+create output, parseoutput and run verifier.
 
 For custom inputs, you can add the input .txt file to the Data\Input
 folder and then copy the relative path without the Matching-and-Verifying
