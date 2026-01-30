@@ -35,19 +35,42 @@ def parseInput(filepath, hospitals, hQueue, students):
         return -1
     
     n = int(rows[0][0])
+    for i in range(1, len(rows)):
+        if (len(rows[i]) != n):
+            return -1
+    if (len(rows) != 2*n + 1 or n <= 0):
+        return -1
 
     for i in range(1, n + 1):
         preferences = []
+        prefUnique = {}
         for c in range(n):
-            preferences.append(int(rows[i][c]))
+            preference = int(rows[i][c])
+            if (preference < 1 or preference > n):
+                return -1
+            if preference in prefUnique:
+                return -1
+            preferences.append(preference)
+            prefUnique[preference] = True
+        if (len(preferences) != n):
+            return -1
         h = Entity(i, preferences[:])
         hospitals[h.index] = h
         hQueue.append(h)
         
     for i in range(n + 1, 2*n + 1):
         preferences = []
+        prefUnique = {}
         for c in range(n):
-            preferences.append(int(rows[i][c]))
+            preference = int(rows[i][c])
+            if (preference < 1 or preference > n):
+                return -1
+            if preference in prefUnique:
+                return -1
+            prefUnique[preference] = True
+            preferences.append(preference)
+        if (len(preferences) != n):
+            return -1
         s = Entity(i-n, preferences[:])
         students[s.index] = s
     return n

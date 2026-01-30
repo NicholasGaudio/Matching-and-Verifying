@@ -11,18 +11,18 @@ def main():
         print("Error parsing input.")
         return
     
-    match(hQueue, students)
-    matchOuput(hospitals, n, "Data\\Output")
+    # match(hQueue, students)
+    # matchOuput(hospitals, n, "Data\\Output")
 
-    if (parseOutput("Data\\Output\\output_0.txt", hospitals, students, n)):
-        print("Output parsed successfully.")
-    else:
-        print("Error parsing output.")
+    # if (parseOutput("Data\\Output\\output_0.txt", hospitals, students, n)):
+    #     print("Output parsed successfully.")
+    # else:
+    #     print("Error parsing output.")
 
-    if (verifier(hospitals, students)):
-        print("Output verified successfully.")
-    else:
-        print("Error verifying output.")
+    # if (verifier(hospitals, students)):
+    #     print("Output verified successfully.")
+    # else:
+    #     print("Error verifying output.")
     
     
 
