@@ -30,6 +30,10 @@ def parseInput(filepath, hospitals, hQueue, students):
     rows = []
     for line in lines:
         rows.append(line.strip().split())
+
+    if (len(rows) == 0 or len(rows[0]) != 1):
+        return 0
+    
     n = int(rows[0][0])
 
     for i in range(1, n + 1):
@@ -119,7 +123,7 @@ def matchOuput(hospitals, n, rootPath):
     filepath = Path("")
     i = 0
     while True:
-        filepath = Path(rootPath + "\output_" + str(i) + ".txt")
+        filepath = Path(rootPath + "\\output_" + str(i) + ".txt")
         if not filepath.is_file():
             break
         else:
@@ -130,3 +134,23 @@ def matchOuput(hospitals, n, rootPath):
             file.write(str(i) + " " + str(hospitals[i].matchedTo.index) + "\n")
     return
     
+def verifier(hospitals, students):
+    for currentHos in hospitals.values():
+        matchedStudent = currentHos.matchedTo
+        currentHosPrefList = currentHos.preferences
+        
+        for potentialStudent in currentHosPrefList:
+            if potentialStudent == matchedStudent.index:
+                break
+            else:
+                potentialStudentEntity = students[potentialStudent]
+                potentialStudentMatched = potentialStudentEntity.matchedTo
+                potentialStudentPrefList = potentialStudentEntity.preferences
+                
+                for preferredHospital in potentialStudentPrefList:
+                    if preferredHospital == potentialStudentMatched.index:
+                        break
+                    if preferredHospital == currentHos.index:
+                        return False
+       
+    return True
