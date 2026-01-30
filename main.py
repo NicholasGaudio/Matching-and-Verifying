@@ -12,6 +12,7 @@ def main():
     for i in range(1, factorOfTwo):
         generateInputs("Data\\Input", 2**i)
         start_time = time.perf_counter()
+
         n = parseInput("Data\\Input\\input_" + str(2**i) + ".txt", hospitals, hQueue, students)
         if n == -1:
             print("Error parsing input.")
@@ -25,17 +26,10 @@ def main():
         end_time = time.perf_counter()
         print("Input Count: " + str(2**i) + " | Run Time: " + str({(end_time - start_time)}))
 
-        parsed = parseOutput("Data\\Output\\output_" + str(i-1) + ".txt", hospitals, students, n)
-        if parsed:
-            print("Output parsed successfully.")
-        else:
-            print("Error parsing output.")
+        parseOutput("Data\\Output\\output_" + str(i-1) + ".txt", hospitals, students, n)
 
         start_time = time.perf_counter()
-        if (verifier(hospitals, students)):
-            print("Output verified successfully.")
-        else:
-            print("Error verifying output.")
+        verifier(hospitals, students)
         end_time = time.perf_counter()
         print("Verifier Input Count: " + str(2**i) + " | Verifier Run Time: " + str({(end_time - start_time)}))
     
