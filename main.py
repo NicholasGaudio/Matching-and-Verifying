@@ -7,8 +7,8 @@ def main():
     n = 0
 
     n = parseInput("Data\\Input\\testInput.txt", hospitals, hQueue, students)
-    if n == 0:
-        print("Error parsicng input.")
+    if n == -1:
+        print("Error parsing input.")
         return
     
     match(hQueue, students)

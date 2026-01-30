@@ -32,7 +32,7 @@ def parseInput(filepath, hospitals, hQueue, students):
         rows.append(line.strip().split())
 
     if (len(rows) == 0 or len(rows[0]) != 1):
-        return 0
+        return -1
     
     n = int(rows[0][0])
 
