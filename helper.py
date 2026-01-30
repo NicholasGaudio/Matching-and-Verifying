@@ -95,7 +95,7 @@ def parseOutput(filepath, hospitals, students, n):
 
     # Verify correct number of lines
     if len(lines) != n:
-        print ("Output Error: Incorrect number of lines in output file.")
+        print ("INVALID: Incorrect number of lines in output file.")
         return
     
     rows = []
@@ -106,7 +106,7 @@ def parseOutput(filepath, hospitals, students, n):
         
         # Verify only 2 entries per line
         if len(rows[i]) != 2:
-            print ("Output Error: Incorrect number of entries in line")
+            print ("INVALID: Incorrect number of entries in line")
             return
         
         # Match
@@ -122,7 +122,7 @@ def parseOutput(filepath, hospitals, students, n):
         s = students[studentIndex]
 
         if h.index in fileHospitals or s.index in fileStudents:
-            print("Output Error: Duplicates found.")
+            print("INVALID: Duplicates found.")
             return False
         
         fileHospitals[h.index] = h
@@ -194,10 +194,10 @@ def verifier(hospitals, students):
                     if preferredHospital == potentialStudentMatched.index:
                         break
                     if preferredHospital == currentHos.index:
-                        print("Verifier Error: Unstable Match Found between Hospital " + str(currentHos.index) + " and Student " + str(potentialStudentEntity.index))
+                        print("UNSTABLE: Hospital " + str(currentHos.index) + " and Student " + str(potentialStudentEntity.index) + " are an unstable pair.")
                         return
        
-    print("Verifier: Matching is stable.")
+    print("VALID STABLE")
 
 def generateInputs(rootPath, num):
     filepath = Path("")
