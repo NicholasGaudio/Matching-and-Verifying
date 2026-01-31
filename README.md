@@ -1,8 +1,8 @@
 # Matching-and-Verifying
 
 # Authors
-John (Jack) Kellen | UFID: 85033113
-Nicholas Gaudio | UFID: 26110582
+- John (Jack) Kellen | UFID: 85033113
+- Nicholas Gaudio | UFID: 26110582
 
 # How To Run
 To work with this project:
